@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ProyectoMarcos</string>
+    <string name="anyadirpiezas">AÑADIR PIEZAS</string>
+    <string name="listadeSocios">LISTA DE SOCIOS</string>
+    <string name="dondeEstoy">¿DONDE ESTOY?</string>
+    <string name="calendario">CALENDARIO</string>
+    <string name="normativa">NORMATIVA</string>
+    <string name="emergencias">EMERGENCIAS</string>
+    <string name="cerrarSesion">CERRAR SESIÓN</string>
+    <!-- <string name=""></string>
+
+    -->
+</resources>
