@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoMarcos">
-        <activity android:name=".ActivityLogin"></activity>
-        <activity android:name=".PrincipalActivity">
+        <activity android:name=".principal.LoginActivity"></activity>
+        <activity android:name=".principal.PrincipalActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.example.proyectomarcos;
+package com.example.proyectomarcos.principal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toolbar;
+
+import com.example.proyectomarcos.R;
 
 public class PrincipalActivity extends AppCompatActivity {
 
@@ -20,9 +22,9 @@ public class PrincipalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+     //   Toolbar toolbar = findViewById(R.id.toolbar);
+       // setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     private void setSupportActionBar(Toolbar toolbar) {

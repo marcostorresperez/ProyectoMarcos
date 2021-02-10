@@ -7,6 +7,11 @@
     <string name="normativa">NORMATIVA</string>
     <string name="emergencias">EMERGENCIAS</string>
     <string name="cerrarSesion">CERRAR SESIÓN</string>
+    <string name="conectar">CONECTAR</string>
+    <string name="pass">Contraseña:</string>
+    <string name="usuario">Nº Socio:</string>
+    <string name="inUsuario">Introduzca su Nº de Socio:</string>
+    <string name="inPass">Introduzca su contraseña:</string>
     <!-- <string name=""></string>
 
     -->

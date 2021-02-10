@@ -1,20 +1,26 @@
-package com.example.proyectomarcos;
+package com.example.proyectomarcos.pojo;
 
 public class Usuario {
     private String nombre;
     private String apellidos;
     private String numSocio;
+    private String clave;
     private String telefono;
     private String esActivo;
     private String esJunta;
 
 
-    public Usuario(String nombre, String apellidos, String numSocio, String telefono, String esActivo) {
+    public Usuario(String nombre, String apellidos, String numSocio, String clave, String telefono, String esActivo) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.numSocio = numSocio;
+        this.clave = clave;
         this.telefono = telefono;
         this.esActivo = esActivo;
+    }
+
+    public Usuario() {
+        super();
     }
 
     public String getNombre() {
@@ -63,6 +69,14 @@ public class Usuario {
 
     public void setEsJunta(String esJunta) {
         this.esJunta = esJunta;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 }
 
