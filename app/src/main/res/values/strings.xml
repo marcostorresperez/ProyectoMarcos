@@ -12,6 +12,14 @@
     <string name="usuario">Nº Socio:</string>
     <string name="inUsuario">Introduzca su Nº de Socio:</string>
     <string name="inPass">Introduzca su contraseña:</string>
+    <string name="socioNum">Socio Nº:</string>
+    <string name="unounodos">112</string>
+    <string name="cientodoce">Emergencias</string>
+    <string name="numGCivil">062</string>
+    <string name="gCivil">Guardia Civil</string>
+    <string name="guardaLocal">Guarda del coto</string>
+    <string name="presidente">Presidente del coto</string>
+    <string name="title_activity_maps">Map</string>
     <!-- <string name=""></string>
 
     -->

@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gris">#5E5C5C</color>
+    <color name="emergencias">#FF0000</color>
+    <color name="verde">#308446</color>
+    <color name="azul">#063971</color>
+
 </resources>

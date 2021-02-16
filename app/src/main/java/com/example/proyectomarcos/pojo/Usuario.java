@@ -1,22 +1,32 @@
 package com.example.proyectomarcos.pojo;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
+    private int id;
     private String nombre;
     private String apellidos;
-    private String numSocio;
     private String clave;
     private String telefono;
     private String esActivo;
     private String esJunta;
 
-
-    public Usuario(String nombre, String apellidos, String numSocio, String clave, String telefono, String esActivo) {
+    public Usuario(int id, String nombre, String apellidos, String clave, String telefono, String esActivo, String esJunta) {
+        this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
-        this.numSocio = numSocio;
         this.clave = clave;
         this.telefono = telefono;
         this.esActivo = esActivo;
+        this.esJunta = esJunta;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Usuario() {
@@ -39,13 +49,6 @@ public class Usuario {
         this.apellidos = apellidos;
     }
 
-    public String getNumSocio() {
-        return numSocio;
-    }
-
-    public void setNumSocio(String numSocio) {
-        this.numSocio = numSocio;
-    }
 
     public String getTelefono() {
         return telefono;
