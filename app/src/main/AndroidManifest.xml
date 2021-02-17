@@ -42,7 +42,8 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-        <activity android:name=".principal.EmergenciasActivity" />
+        <activity android:name=".principal.EmergenciasActivity"
+            android:exported="true"/>
         <activity android:name=".principal.SociosActivity" />
         <activity android:name=".principal.LoginActivity">
             <intent-filter>
