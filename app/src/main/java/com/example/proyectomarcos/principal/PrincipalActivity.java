@@ -15,7 +15,7 @@ import com.example.proyectomarcos.pojo.Usuario;
 
 public class PrincipalActivity extends AppCompatActivity {
 
-    private Button btn1, btnSocios, btnMapa, btn4, btn5, btnEmergencias;
+    private Button btn1, btnSocios, btnMapa, btn4, btnNormativa, btnEmergencias;
     private Button btnsalir;
     private TextView socio;
     private TextView nombre;
@@ -52,6 +52,11 @@ public class PrincipalActivity extends AppCompatActivity {
 
     public void btnSalir(View v) {
         Intent intent = new Intent(PrincipalActivity.this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void btnNormativa(View v) {
+        Intent intent = new Intent(PrincipalActivity.this, NormativaActivity.class);
         startActivity(intent);
     }
 

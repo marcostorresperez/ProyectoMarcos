@@ -32,7 +32,7 @@ public class SociosAdapter extends ArrayAdapter<Usuario> {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View item = inflater.inflate(R.layout.layout_elemento_socio_lista, null);
 
-        TextView id = item.findViewById(R.id.id);
+        TextView id = item.findViewById(R.id.numSocio);
         TextView nombre = item.findViewById(R.id.nombre);
         TextView apellidos = item.findViewById(R.id.apellidos);
 

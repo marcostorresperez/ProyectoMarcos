@@ -9,8 +9,11 @@ import androidx.annotation.Nullable;
 import com.example.proyectomarcos.dao.UsuarioDAO;
 import com.example.proyectomarcos.pojo.Usuario;
 
+import java.util.ArrayList;
+
 public class UsuariosSQLiteHelper extends SQLiteOpenHelper {
 
+    private OperacionesBD miBD;
     private static SQLiteDatabase db;
     private static int version = 2;
     private static String nombreBD = "UsuariosDB";

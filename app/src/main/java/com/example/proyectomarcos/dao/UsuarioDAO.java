@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.hardware.usb.UsbInterface;
 import android.text.TextUtils;
 
+import com.example.proyectomarcos.bd.OperacionesBD;
 import com.example.proyectomarcos.bd.UsuariosSQLiteHelper;
 import com.example.proyectomarcos.pojo.Usuario;
 
@@ -17,7 +18,7 @@ public class UsuarioDAO implements PojoDAO {
     public long add(Object obj) {
         ContentValues contentValues = new ContentValues();
         Usuario u = (Usuario) obj;
-        contentValues.put("_id",u.getId());
+        contentValues.put("_id", u.getId());
         contentValues.put("nombre", u.getNombre());
         contentValues.put("apellidos", u.getApellidos());
         contentValues.put("telefono", u.getTelefono());
@@ -31,7 +32,7 @@ public class UsuarioDAO implements PojoDAO {
     public int update(Object obj) {
         ContentValues contentValues = new ContentValues();
         Usuario u = (Usuario) obj;
-        contentValues.put("_id",u.getId());
+        contentValues.put("_id", u.getId());
         contentValues.put("nombre", u.getNombre());
         contentValues.put("apellidos", u.getApellidos());
         contentValues.put("telefono", u.getTelefono());
@@ -81,7 +82,6 @@ public class UsuarioDAO implements PojoDAO {
         ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
         String[] columnas = {"_id", "nombre", "apellidos", "telefono", "clave", "esActivo", "esJunta"};
         Cursor cursor = UsuariosSQLiteHelper.getDB().query("usuarios", columnas, null, null, null, null, null);
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
         if (cursor.moveToFirst()) {
             do {
                 Usuario u = new Usuario();
@@ -97,4 +97,5 @@ public class UsuarioDAO implements PojoDAO {
         }
         return listaUsuarios;
     }
+
 }

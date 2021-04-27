@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.example.proyectomarcos.pojo.Usuario;
 
+import java.util.ArrayList;
+
 public class OperacionesBD {
 
     private UsuariosSQLiteHelper miBD;
@@ -20,6 +22,7 @@ public class OperacionesBD {
         }
         return instance;
     }
+
 
     public Usuario login(Usuario u) {
         Usuario aux = (Usuario) miBD.getUsuarioDAO().search(u);

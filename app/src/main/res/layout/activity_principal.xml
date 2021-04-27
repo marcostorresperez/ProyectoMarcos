@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".principal.PrincipalActivity">
+    tools:context=".principal.PrincipalActivity"
+    android:background="@drawable/fondocamuflaje">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -89,6 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/botongcivil"
             android:padding="0dp"
             android:text="AÑADIR PIEZAS" />
 
@@ -98,6 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/botongcivil"
             android:onClick="btnSocios"
             android:text="@string/listadeSocios" />
 
@@ -107,6 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/botongcivil"
             android:onClick="btnMapa"
             android:text="@string/dondeEstoy" />
 
@@ -116,6 +120,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/botongcivil"
             android:text="@string/calendario" />
 
         <Button
@@ -124,6 +129,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/botongcivil"
+            android:onClick="btnNormativa"
             android:text="@string/normativa" />
 
         <Button
@@ -132,6 +139,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/botongcivil"
             android:onClick="btnEmergencias"
             android:text="@string/emergencias" />
 
@@ -149,6 +157,7 @@
         style="@style/botones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/botongcivil"
         android:onClick="btnSalir"
         android:text="@string/cerrarSesion"
         app:layout_constraintBottom_toBottomOf="parent"
