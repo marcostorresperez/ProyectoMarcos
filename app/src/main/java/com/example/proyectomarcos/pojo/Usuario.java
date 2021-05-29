@@ -3,30 +3,25 @@ package com.example.proyectomarcos.pojo;
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
-    private int id;
+    private String correo;
     private String nombre;
-    private String apellidos;
-    private String clave;
+    private String apellido;
     private String telefono;
-    private String esActivo;
-    private String esJunta;
 
-    public Usuario(int id, String nombre, String apellidos, String clave, String telefono, String esActivo, String esJunta) {
-        this.id = id;
+    public Usuario(String correo, String nombre, String apellido, String telefono) {
+
+        this.correo = correo;
         this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.clave = clave;
+        this.apellido = apellido;
         this.telefono = telefono;
-        this.esActivo = esActivo;
-        this.esJunta = esJunta;
     }
 
-    public int getId() {
-        return id;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public Usuario() {
@@ -41,12 +36,12 @@ public class Usuario implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
 
@@ -58,28 +53,14 @@ public class Usuario implements Serializable {
         this.telefono = telefono;
     }
 
-    public String getEsActivo() {
-        return esActivo;
-    }
-
-    public void setEsActivo(String esActivo) {
-        this.esActivo = esActivo;
-    }
-
-    public String getEsJunta() {
-        return esJunta;
-    }
-
-    public void setEsJunta(String esJunta) {
-        this.esJunta = esJunta;
-    }
-
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "correo='" + correo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", telefono='" + telefono + '\'' +
+                '}';
     }
 }
 

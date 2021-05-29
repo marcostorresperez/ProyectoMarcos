@@ -1,17 +1,27 @@
 package com.example.proyectomarcos.principal;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.proyectomarcos.R;
 import com.example.proyectomarcos.pojo.Usuario;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.ktx.Firebase;
+
+import org.jetbrains.annotations.NotNull;
 
 public class PrincipalActivity extends AppCompatActivity {
 
@@ -26,22 +36,26 @@ public class PrincipalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
-        //   Toolbar toolbar = findViewById(R.id.toolbar);
-        // setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayShowTitleEnabled(false);
+        FirebaseUser fbUser = (FirebaseUser) FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        usuario = (Usuario) getIntent().getSerializableExtra("usuario");
-        nombre = findViewById(R.id.nombre);
-        nombre.setText(usuario.getNombre());
-        socio = findViewById(R.id.txtSocio);
-        socio.setText(String.valueOf(usuario.getId()));
+        db.collection("usuarios").document(fbUser.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    usuario = document.toObject(Usuario.class);
+                    nombre = findViewById(R.id.correoUser);
+                    nombre.setText("Bienvenido \n"+ usuario.getNombre().toUpperCase());
+                }
+            }
+        });
+
     }
 
-    private void setSupportActionBar(Toolbar toolbar) {
-    }
 
     public void btnSocios(View v) {
-        Intent intent = new Intent(PrincipalActivity.this, SociosActivity.class);
+        Intent intent = new Intent(PrincipalActivity.this, UsuarioActivity.class);
         startActivity(intent);
     }
 
@@ -51,7 +65,7 @@ public class PrincipalActivity extends AppCompatActivity {
     }
 
     public void btnSalir(View v) {
-        Intent intent = new Intent(PrincipalActivity.this, LoginActivity.class);
+        Intent intent = new Intent(PrincipalActivity.this, LoginActivityKT.class);
         startActivity(intent);
     }
 

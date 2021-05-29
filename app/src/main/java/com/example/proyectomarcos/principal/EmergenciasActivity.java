@@ -44,11 +44,11 @@ public class EmergenciasActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String numero = "062";
-         /*       Intent i = new Intent(Intent.ACTION_CALL);
+                Intent i = new Intent(Intent.ACTION_CALL);
                 i.setData(Uri.parse("tel:"+numero));
                 startActivity(i);
 
-          */
+
                 callPhoneNumber(numero);
             }
         });
@@ -98,8 +98,9 @@ public class EmergenciasActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                                           int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 101) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 callPhoneNumber("062");

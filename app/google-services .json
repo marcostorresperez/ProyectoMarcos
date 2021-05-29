@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1071899992241",
+    "project_id": "proyectomarcos-78e4c",
+    "storage_bucket": "proyectomarcos-78e4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071899992241:android:3ca1aae69218a048b78290",
+        "android_client_info": {
+          "package_name": "com.example.proyectomarcos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1071899992241-7m1ruddod4rtp090ffm795mb62v9uod9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApGjnkU8mJ9w83x_VnynGyVeLEQ6W-XBc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1071899992241-7m1ruddod4rtp090ffm795mb62v9uod9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

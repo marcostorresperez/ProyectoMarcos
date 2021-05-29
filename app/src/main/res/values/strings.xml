@@ -8,20 +8,35 @@
     <string name="emergencias">EMERGENCIAS</string>
     <string name="cerrarSesion">CERRAR SESIÓN</string>
     <string name="conectar">CONECTAR</string>
+    <string name="registrar">REGISTRAR</string>
     <string name="pass">Contraseña:</string>
-    <string name="usuario">Nº Socio:</string>
-    <string name="inUsuario">Introduzca su Nº de Socio:</string>
+    <string name="usuario">email</string>
+    <string name="inCorreo">Introduzca su usuario:</string>
     <string name="inPass">Introduzca su contraseña:</string>
+    <string name="introduce">Rellena con tus datos</string>
     <string name="socioNum">Socio Nº:</string>
     <string name="unounodos">112</string>
     <string name="cientodoce">Emergencias</string>
     <string name="numGCivil">062</string>
+    <string name="nombre">Nombre:</string>
+    <string name="apellido">Apellido:</string>
+    <string name="Telefono">Telefono</string>
     <string name="gCivil">Guardia Civil</string>
     <string name="guardaLocal">Guarda del coto</string>
     <string name="presidente">Presidente del coto</string>
     <string name="title_activity_maps">Map</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email:</string>
+    <string name="prompt_password">contraseña</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Datos Incorrectos</string>
+    <string name="correo">email</string>
+    <string name="llamada">Llamar al socio</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="invalid_password">Password must be >5 characters</string>
     <!-- <string name=""></string>
 
     -->
