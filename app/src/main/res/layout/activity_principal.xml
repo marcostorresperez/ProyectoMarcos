@@ -48,16 +48,6 @@
         app:layout_constraintTop_toTopOf="@+id/guideline5">
 
         <Button
-            android:id="@+id/button6"
-            style="@style/botones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/botongcivil"
-            android:padding="0dp"
-            android:text="AÑADIR PIEZAS" />
-
-        <Button
             android:id="@+id/button"
             style="@style/botones"
             android:layout_width="match_parent"
@@ -78,13 +68,14 @@
             android:text="@string/dondeEstoy" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/btnTiempo"
             style="@style/botones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/botongcivil"
-            android:text="@string/calendario" />
+            android:onClick="btnTiempo"
+            android:text="@string/tiempo" />
 
         <Button
             android:id="@+id/button2"

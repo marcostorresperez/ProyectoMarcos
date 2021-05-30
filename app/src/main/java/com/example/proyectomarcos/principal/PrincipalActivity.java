@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proyectomarcos.R;
+import com.example.proyectomarcos.fragment.Activity_Fragment_Tiempo;
 import com.example.proyectomarcos.pojo.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -25,16 +26,19 @@ import org.jetbrains.annotations.NotNull;
 
 public class PrincipalActivity extends AppCompatActivity {
 
-    private Button btn1, btnSocios, btnMapa, btn4, btnNormativa, btnEmergencias;
+    private Button btn1, btnSocios, btnMapa, btnTiempo, btnNormativa, btnEmergencias;
     private Button btnsalir;
-    private TextView socio;
     private TextView nombre;
     private Usuario usuario;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
+
+        btnSocios=findViewById(R.id.button);
 
         FirebaseUser fbUser = (FirebaseUser) FirebaseAuth.getInstance().getCurrentUser();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -46,7 +50,12 @@ public class PrincipalActivity extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     usuario = document.toObject(Usuario.class);
                     nombre = findViewById(R.id.correoUser);
-                    nombre.setText("Bienvenido \n"+ usuario.getNombre().toUpperCase());
+                    nombre.setText("Bienvenido \n" + usuario.getNombre().toUpperCase());
+
+
+                    if (!usuario.getEsJunta()) {
+                        btnSocios.setVisibility(View.GONE);
+                    }
                 }
             }
         });
@@ -71,6 +80,12 @@ public class PrincipalActivity extends AppCompatActivity {
 
     public void btnNormativa(View v) {
         Intent intent = new Intent(PrincipalActivity.this, NormativaActivity.class);
+        startActivity(intent);
+    }
+
+
+    public void btnTiempo(View v) {
+        Intent intent = new Intent(PrincipalActivity.this, TiempoActivity.class);
         startActivity(intent);
     }
 

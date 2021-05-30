@@ -15,6 +15,8 @@ import com.example.proyectomarcos.pojo.Usuario;
 
 public class Activity_Fragment_Detalle extends Fragment {
 
+    public Activity_Fragment_Detalle(){}
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

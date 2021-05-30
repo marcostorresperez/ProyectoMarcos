@@ -1,19 +1,27 @@
 package com.example.proyectomarcos.pojo;
 
+import com.google.firebase.firestore.GeoPoint;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Usuario implements Serializable {
+    private String uid;
     private String correo;
     private String nombre;
     private String apellido;
     private String telefono;
+    private Boolean esJunta;
+    private ArrayList<GeoPoint> puntos;
 
-    public Usuario(String correo, String nombre, String apellido, String telefono) {
-
+    public Usuario(String uid, String correo, String nombre, String apellido, String telefono) {
+        this.uid = uid;
         this.correo = correo;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
+        this.esJunta = false;
+        this.puntos = new ArrayList<>();
     }
 
     public String getCorreo() {
@@ -61,6 +69,30 @@ public class Usuario implements Serializable {
                 ", apellido='" + apellido + '\'' +
                 ", telefono='" + telefono + '\'' +
                 '}';
+    }
+
+    public Boolean getEsJunta() {
+        return esJunta;
+    }
+
+    public void setEsJunta(Boolean esJunta) {
+        this.esJunta = esJunta;
+    }
+
+    public ArrayList<GeoPoint> getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(ArrayList<GeoPoint> puntos) {
+        this.puntos = puntos;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }
 

@@ -3,7 +3,7 @@
     <string name="anyadirpiezas">AÑADIR PIEZAS</string>
     <string name="listadeSocios">LISTA DE SOCIOS</string>
     <string name="dondeEstoy">¿DONDE ESTOY?</string>
-    <string name="calendario">CALENDARIO</string>
+    <string name="tiempo">EL TIEMPO</string>
     <string name="normativa">NORMATIVA</string>
     <string name="emergencias">EMERGENCIAS</string>
     <string name="cerrarSesion">CERRAR SESIÓN</string>
@@ -37,6 +37,9 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="invalid_password">Password must be >5 characters</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- <string name=""></string>
 
     -->

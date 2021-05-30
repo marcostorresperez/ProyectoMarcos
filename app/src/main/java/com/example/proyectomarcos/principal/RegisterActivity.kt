@@ -91,10 +91,12 @@ class RegisterActivity : AppCompatActivity() {
                     val user: FirebaseUser? = auth.currentUser
 
                     val dbUser = hashMapOf(
+                        "uid" to user!!.uid,
                         "correo" to user!!.email.toString(),
                         "nombre" to nombre,
                         "apellido" to apellido,
-                        "telefono" to telefono
+                        "telefono" to telefono,
+                        "esJunta"  to false
                     )
 
                     db.collection("usuarios").document(user.uid)

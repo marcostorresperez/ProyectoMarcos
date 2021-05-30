@@ -19,7 +19,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoMarcos">
-        <activity android:name=".principal.RegisterActivity"></activity>
+        <activity android:name=".fragment.Activity_Fragment_Tiempo_Detalle"></activity>
+        <activity android:name=".principal.ActivityTiempoDetalle" />
+        <activity android:name=".principal.TiempoActivity" />
+        <activity android:name=".fragment.Activity_Fragment_Tiempo" />
+        <activity android:name=".principal.RegisterActivity" />
         <activity android:name=".principal.LoginActivityKT">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,5 +1,6 @@
 package com.example.proyectomarcos.principal;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.proyectomarcos.R;
+import com.example.proyectomarcos.pojo.Usuario;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -18,11 +20,23 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.GeoPoint;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private ImageButton boton;
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +46,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         boton = findViewById(R.id.imageButton);
+        FirebaseUser fbUser = (FirebaseUser) FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("usuarios").document(fbUser.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    usuario = document.toObject(Usuario.class);
+
+
+                }
+            }
+        });
     }
 
     /**
@@ -84,6 +112,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         double lat = mMap.getMyLocation().getLatitude();
         double longt = mMap.getMyLocation().getLongitude();
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        if (usuario.getPuntos() == null) {
+            usuario.setPuntos(new ArrayList<>());
+        }
+        usuario.getPuntos().add(new GeoPoint(lat, longt));
+
+        Map<String, Object> usuarioObjectMap = new HashMap<>();
+        usuarioObjectMap.put("puntos", usuario.getPuntos());
+
+        db.collection("usuarios").document(usuario.getUid()).update("puntos", usuario.getPuntos());
 
         LatLng posActual = new LatLng(lat, longt);
         MarkerOptions mo = new MarkerOptions();
