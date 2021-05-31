@@ -49,6 +49,7 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">36dp</item>
         <item name="android:background">@color/marron</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <style name="botonesLarge">
@@ -66,9 +67,21 @@
     <style name="titulosLarge">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">64dp
-        </item>
+        <item name="android:textSize">64dp</item>
+        <item name="android:textAlignment">center</item>
         <item name="android:background">@color/marron</item>
+    </style>
+
+    <style name="camposLarge">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">36dp</item>
+        <item name="android:background">@color/marron</item>
+        <item name="hintTextColor">@color/black</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">20dp</item>
+        <item name="android:padding">10dp</item>
     </style>
 
 </resources>

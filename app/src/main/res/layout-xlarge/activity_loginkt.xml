@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.4" />
 
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
@@ -53,79 +53,84 @@
 
     <TextView
         android:id="@+id/textView2"
-        style="@style/campos"
+        style="@style/textosLarge"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="112dp"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
         android:gravity="bottom"
         android:text="@string/inCorreo"
-        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/edUser"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline7" />
-
-    <EditText
-        android:id="@+id/edUser"
-        style="@style/campos"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="@string/correo"
-        android:text="mtp@gmail.com"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline7" />
-
-    <TextView
-        android:id="@+id/textView3"
-        style="@style/campos"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/white"
-        android:text="@string/inPass"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/edPass"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
-        android:gravity="bottom"/>
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/edUser"
+        style="@style/textosLarge"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/correo"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:text="mtp@gmail.com"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/textosLarge"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/white"
+        android:gravity="bottom"
+        android:text="@string/inPass"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/edUser" />
 
     <EditText
         android:id="@+id/edPass"
-        style="@style/campos"
+        style="@style/textosLarge"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:text="123456"
         android:hint="@string/pass"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/guideline16"
+        android:padding="10dp"
+        android:text="123456"
+        android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="@+id/guideline7" />
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="155dp" />
+        app:layout_constraintGuide_percent="0.8" />
 
     <Button
         android:id="@+id/btnLogin"
-        style="@style/botones"
+        style="@style/botonesLarge"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -137,7 +142,7 @@
 
     <Button
         android:id="@+id/btnRegister"
-        style="@style/botones"
+        style="@style/botonesLarge"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/registrar"
