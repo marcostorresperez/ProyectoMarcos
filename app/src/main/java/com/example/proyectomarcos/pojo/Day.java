@@ -6,26 +6,13 @@ import java.time.LocalDate;
 public class Day implements Serializable {
 
     private Long id;
-
-
     private LocalDate date;
-
-
     private Float temperature_max;
-
-
     private Float temperature_min;
-
     private String text;
-
-
     private int humidity;
-
     private String icon;
-
     private int wind;
-
-
     private String wind_direction;
 
     public Day(LocalDate date,

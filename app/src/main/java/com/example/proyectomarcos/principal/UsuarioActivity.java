@@ -13,19 +13,15 @@ import com.example.proyectomarcos.pojo.Usuario;
 
 public class UsuarioActivity extends AppCompatActivity implements UsuarioListener {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_activity_usuario);
 
-    Activity_Fragment_Lista frgListado = new Activity_Fragment_Lista();
+        Activity_Fragment_Lista frgListado = new Activity_Fragment_Lista();
         frgListado.setUsuarioListener(this);
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.FrgListado, frgListado)
-                .commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.FrgListado, frgListado).commit();
     }
 
     @Override
@@ -34,6 +30,7 @@ public class UsuarioActivity extends AppCompatActivity implements UsuarioListene
 
         if (hayDetalle) {
             ((Activity_Fragment_Detalle) getSupportFragmentManager().findFragmentById(R.id.FrgDetalle)).mostrarDetalle(u);
+
         } else {
             Intent i = new Intent(this, ActivityUsuarioDetalle.class);
             i.putExtra("UsuarioDetalle", u);

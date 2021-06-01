@@ -8,6 +8,12 @@
         <item name="android:background">@color/marron</item>
     </style>
 
+    <style name="textosTiempo">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
     <style name="campos">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/black</item>
@@ -49,6 +55,13 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">36dp</item>
         <item name="android:background">@color/marron</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="textosLargeTiempo">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">36dp</item>
         <item name="android:textAlignment">center</item>
     </style>
 

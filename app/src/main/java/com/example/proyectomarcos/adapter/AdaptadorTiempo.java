@@ -19,6 +19,7 @@ import com.example.proyectomarcos.pojo.Day;
 import com.example.proyectomarcos.pojo.Information;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,17 +43,26 @@ public class AdaptadorTiempo extends ArrayAdapter<Day> {
         LayoutInflater inflater = context.getLayoutInflater();
         @SuppressLint("ViewHolder") View listItemView = inflater.inflate(R.layout.layout_tiempo_lista, null);
 
-        ImageView tiempoImage = listItemView.findViewById(R.id.iempoImage);
+        //Conectamos todos los elementos
+        ImageView tiempoImage = listItemView.findViewById(R.id.tiempoImage);
         TextView tiempoMax = listItemView.findViewById(R.id.tiempoTemperaturaMax);
         TextView tiempoMin = listItemView.findViewById(R.id.tiempoTemperaturaMin);
-        TextView tiempoViento = listItemView.findViewById(R.id.tiempoViento);
+        TextView tiempoFecha = listItemView.findViewById(R.id.tiempoFecha);
 
         Day dia = getItem(position);
 
+        Picasso.get().load("https://v5i.tutiempo.net/wi/01/90/" + dia.getIcon() + ".png").into(tiempoImage);
 
+        // Convertimos la fecha recogida "YYYY-MM-DD" en otro formato
+        String fecha = dia.getDate().toString();
+        String[] fechaArray = fecha.split("-");
+        String fechaNueva = fechaArray[2] + "/" + fechaArray[1];
+
+
+        tiempoFecha.setText(fechaNueva);
         tiempoMin.setText(String.valueOf(dia.getTemperature_min()) + info.getTemperature());
         tiempoMax.setText(String.valueOf(dia.getTemperature_max()) + info.getTemperature());
-        tiempoViento.setText(String.valueOf(dia.getWind()) + info.getWind());
+
 
         listItemView.setOnClickListener(new View.OnClickListener() {
             @Override

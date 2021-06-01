@@ -28,8 +28,6 @@ public class Activity_Fragment_Detalle extends Fragment {
         TextView txtNombre = (TextView) getView().findViewById(R.id.campoNombre);
         txtNombre.setText(u.getNombre()+" "+u.getApellido());
 
-
-
         TextView txtTelefono = (TextView) getView().findViewById(R.id.detalleTelefono);
         txtTelefono.setText(u.getTelefono());
 

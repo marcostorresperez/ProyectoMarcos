@@ -36,9 +36,15 @@
     <string name="llamada">Llamar al socio</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_register">RegisterActivity</string>
-    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="invalid_password">Rellena todos los campos correctamente</string>
     <string name="dialog">Si aceptas cambiarás tu ubicación marcada.\n ¿Estás seguro?</string>
 
+    <!-- STRING DEL TIEMPO -->
+    <string name="tempMin">Min:</string>
+    <string name="tempMax">Max:</string>
+    <string name="tempHumedad">Humedad:</string>
+    <string name="tempVViento">Vel. Viento:</string>
+    <string name="tempDViento">Dir. Viento:</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- <string name=""></string>

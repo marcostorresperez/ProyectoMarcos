@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.Activity_Fragment_Tiempo">
+    android:background="#65C0CC"
+   >
 
     <ListView
         android:id="@+id/tiempoList"

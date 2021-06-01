@@ -20,6 +20,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -127,7 +128,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         MarkerOptions mo = new MarkerOptions();
         mo.position(posActual);
         mo.title("Inicio del día");
-        mMap.addMarker(mo);
+        mMap.addMarker(mo.icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher_map_foreground)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(posActual));
     }
 
