@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#65C0CC"
+    android:background="@drawable/bg1"
     android:orientation="vertical"
     tools:context=".fragment.Activity_Fragment_Tiempo_Detalle">
 
@@ -25,7 +25,6 @@
         android:layout_height="wrap_content"
 
         android:layout_marginTop="32dp"
-        android:background="#65C0CC"
         android:text="Nublado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
