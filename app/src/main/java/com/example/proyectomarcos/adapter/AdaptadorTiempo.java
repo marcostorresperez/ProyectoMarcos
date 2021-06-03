@@ -41,28 +41,27 @@ public class AdaptadorTiempo extends ArrayAdapter<Day> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        @SuppressLint("ViewHolder") View listItemView = inflater.inflate(R.layout.layout_tiempo_lista, null);
+        @SuppressLint("ViewHolder") View listItemView = inflater
+                .inflate(R.layout.layout_tiempo_lista, null);
 
-        //Conectamos todos los elementos
         ImageView tiempoImage = listItemView.findViewById(R.id.tiempoImage);
         TextView tiempoMax = listItemView.findViewById(R.id.tiempoTemperaturaMax);
         TextView tiempoMin = listItemView.findViewById(R.id.tiempoTemperaturaMin);
         TextView tiempoFecha = listItemView.findViewById(R.id.tiempoFecha);
 
         Day dia = getItem(position);
+//La libreria Picasso nos convierte la imagen recibida en un icono  uw podamos utilizar
+        Picasso.get().load("https://v5i.tutiempo.net/wi/01/90/" + dia.getIcon() + ".png")
+                .into(tiempoImage);
 
-        Picasso.get().load("https://v5i.tutiempo.net/wi/01/90/" + dia.getIcon() + ".png").into(tiempoImage);
-
-        // Convertimos la fecha recogida "YYYY-MM-DD" en otro formato
+// Convertimos la fecha recogida "YYYY-MM-DD" en otro formato
         String fecha = dia.getDate().toString();
         String[] fechaArray = fecha.split("-");
         String fechaNueva = fechaArray[2] + "/" + fechaArray[1];
 
-
         tiempoFecha.setText(fechaNueva);
         tiempoMin.setText(String.valueOf(dia.getTemperature_min()) + info.getTemperature());
         tiempoMax.setText(String.valueOf(dia.getTemperature_max()) + info.getTemperature());
-
 
         listItemView.setOnClickListener(new View.OnClickListener() {
             @Override

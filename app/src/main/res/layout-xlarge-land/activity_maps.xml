@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8BDFEA"
+    android:background="@color/agua"
     android:orientation="vertical">
 
 
@@ -44,13 +44,14 @@
         android:id="@+id/imageButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/botonemergencias"
+        android:background="@color/agua"
         android:onClick="sePulsa"
         android:src="@android:drawable/ic_menu_mylocation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline12"
         app:layout_constraintStart_toStartOf="@+id/guideline14"
-        app:layout_constraintTop_toBottomOf="@+id/map" />
+        app:layout_constraintTop_toBottomOf="@+id/map"
+        android:scaleType="fitCenter"/>
 
     <TextView
         android:id="@+id/textView17"

@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/marron"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg2"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".fragment.Activity_Fragment_Detalle">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingTop="10sp">
 
         <TextView
             android:id="@+id/textView10"
-            style="@style/textos"
+            style="@style/textosTiempo"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -26,7 +28,7 @@
 
         <TextView
             android:id="@+id/detalleCorreo"
-            style="@style/textos"
+            style="@style/textosTiempo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -38,12 +40,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
         android:orientation="horizontal"
         android:paddingTop="10sp">
 
         <TextView
             android:id="@+id/textView11"
-            style="@style/textos"
+            style="@style/textosTiempo"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -52,7 +55,7 @@
 
         <TextView
             android:id="@+id/campoNombre"
-            style="@style/textos"
+            style="@style/textosTiempo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -63,12 +66,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
         android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/textView13"
-            style="@style/textos"
+            style="@style/textosTiempo"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -78,7 +82,7 @@
 
         <TextView
             android:id="@+id/detalleTelefono"
-            style="@style/textos"
+            style="@style/textosTiempo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

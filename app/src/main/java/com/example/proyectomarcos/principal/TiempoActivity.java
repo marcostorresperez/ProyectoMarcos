@@ -25,13 +25,11 @@ public class TiempoActivity extends AppCompatActivity implements AbrirTiempoList
         getSupportFragmentManager().beginTransaction().add(R.id.FrgTiempo, frgTiempo).commit();
     }
 
-
     @Override
     public void diaSeleccionado(Day day, Information info) {
         boolean hayDetalle = (getSupportFragmentManager().findFragmentById(R.id.FrgTiempoDetalle) != null);
 
         if(hayDetalle){
-            ((Activity_Fragment_Tiempo_Detalle) getSupportFragmentManager().findFragmentById(R.id.FrgTiempoDetalle)).mostrarDetalle(day, info);
 
         }else{
             Intent i= new Intent(this, ActivityTiempoDetalle.class);

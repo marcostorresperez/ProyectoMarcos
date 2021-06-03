@@ -31,10 +31,9 @@ public class NormativaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_normativa);
-        WebView view = (WebView) this.findViewById(R.id.wv);
-        view.getSettings().setJavaScriptEnabled(true);
 
-        view.loadUrl("https://www.dropbox.com/s/1z9kgyiv57gph25/normativaCoto.pdf?dl=0");
+        //Creamos un WebView y damos permisos para poder navegar por la web
+
 
 
     }

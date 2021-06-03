@@ -20,17 +20,18 @@ import javax.xml.transform.stream.StreamResult;
 public class CtrlDOM {
     File file = new File("random.xml");
 
-    public static Document instanciarDocument() throws ParserConfigurationException {
+    public static Document instanciarDocumento() throws ParserConfigurationException {
         return DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
     }
 
-    public static Document instanciarDocument(File XmlFile) throws ParserConfigurationException, IOException, SAXException {
+    public static Document instanciarDocumento(File XmlFile) throws ParserConfigurationException,
+            IOException, SAXException {
         Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(XmlFile);
         doc.getDocumentElement().normalize();
         return doc;
     }
 
-    public static void escriureDocumentATextXml(Document doc, File file) throws TransformerException {
+    public static void escribirDocumentoAXML(Document doc, File file) throws TransformerException {
         Transformer transformer = TransformerFactory.newInstance().newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 

@@ -121,19 +121,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="155dp" />
+        app:layout_constraintGuide_percent="0.69" />
 
     <Button
         android:id="@+id/btnLogin"
         style="@style/botones"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
         android:text="@string/conectar"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toTopOf="@+id/guideline16" />
+
+
+    <ImageButton
+        android:id="@+id/btnGLogin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/white"
+        android:scaleType="centerInside"
+        android:src="@drawable/glogo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
 
     <Button
         android:id="@+id/btnRegister"
@@ -141,7 +154,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/registrar"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintStart_toStartOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />

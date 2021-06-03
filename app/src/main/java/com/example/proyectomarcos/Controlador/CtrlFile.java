@@ -32,8 +32,9 @@ public class CtrlFile extends CtrlDOM{
     public CtrlFile() {
     }
 
-    public static Document recuperar(File xmlFile) throws IOException, SAXException, ParserConfigurationException, ParserConfigurationException, SAXException {
-        Document doc = instanciarDocument(xmlFile);
+    public static Document recuperar(File xmlFile) throws IOException, SAXException,
+            ParserConfigurationException, ParserConfigurationException, SAXException {
+        Document doc = instanciarDocumento(xmlFile);
         return doc;
     }
 

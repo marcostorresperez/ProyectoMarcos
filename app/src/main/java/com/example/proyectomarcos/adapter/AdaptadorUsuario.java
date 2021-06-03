@@ -30,17 +30,21 @@ public class AdaptadorUsuario extends ArrayAdapter<Usuario> {
         this.datos = datos;
     }
 
+
+    //Cargamos los usuarios con unos datos identificativos
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {        LayoutInflater inflater = context.getLayoutInflater();
-        @SuppressLint("ViewHolder") View listItemView = inflater.inflate(R.layout.layout_elemento_lista, null);
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        LayoutInflater inflater = context.getLayoutInflater();
+        @SuppressLint("ViewHolder") View listItemView =
+                inflater.inflate(R.layout.layout_elemento_lista, null);
+
         Usuario usuario = getItem(position);
         TextView correo = (TextView) listItemView.findViewById(R.id.userCorreo);
         correo.setText(usuario.getCorreo());
 
         TextView apellido = (TextView) listItemView.findViewById(R.id.detalleApellido);
         apellido.setText(usuario.getApellido());
-        Log.d("Adapter", "Usuario añadido");
 
         return listItemView;
 

@@ -31,7 +31,8 @@ public class CtrlDay extends CtrlDOM {
         int wind = Integer.parseInt(getValorEtiqueta(ET_WIND, elemDay));
         String wind_direction = getValorEtiqueta(ET_WIND_DIRECTION, elemDay);
         String icon = getValorEtiqueta(ET_ICON, elemDay);
-        return new Day(date, temperature_max, temperature_min, text, humidity, wind, wind_direction, icon);
+        return new Day(date, temperature_max, temperature_min, text, humidity, wind,
+                wind_direction, icon);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

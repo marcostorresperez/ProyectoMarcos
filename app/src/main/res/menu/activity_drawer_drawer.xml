@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/principalActivity"
+            android:title="Principal" />
+        <item
+            android:id="@+id/usuarioActivity"
+            android:title="Lista de socios" />
+        <item
+            android:id="@+id/normativaActivity"
+            android:title="Normativa" />
+        <item
+            android:id="@+id/tiempoActivity"
+            android:title="El tiempo" />
+        <item
+            android:id="@+id/emergenciasActivity"
+            android:title="Emergencias" />
+
+    </group>
+</menu>

@@ -37,53 +37,45 @@ public class Activity_Fragment_Lista extends Fragment {
     private ListView lstListado;
     private View view;
 
-
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.view = inflater.inflate(R.layout.layout_fragment_lista, container, false);
         this.lstListado = view.findViewById(R.id.LstListado);
 
         Fragment parent = this;
-
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        db.collection("usuarios").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-                    datos = new ArrayList<>();
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Log.d("Hola", document.getId() + " => " + document.getData());
-                        Usuario usuario = document.toObject(Usuario.class);
-                        Log.d("Adios", usuario.toString());
-                        datos.add(usuario);
+        db.collection("usuarios").get().addOnCompleteListener(
+                new OnCompleteListener<QuerySnapshot>() {
 
-                    }
-
-                    Log.d("Fin", "Fuera del for");
-                    lstListado.setAdapter(new AdaptadorUsuario(parent, datos));
-
-                    lstListado.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> list, View v, int pos, long id) {
-                            if (listener != null) {
-                                listener.onUsuarioSeleccionado((Usuario) lstListado.getAdapter().getItem(pos));
+//  Accedemos a la BD y cargamos todos los usuarios en un ArrayList para pasarlos al adaptador
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            datos = new ArrayList<>();
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Usuario usuario = document.toObject(Usuario.class);
+                                datos.add(usuario);
                             }
+
+                            lstListado.setAdapter(new AdaptadorUsuario(parent, datos));
+                            lstListado.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> list, View v, int pos, long id) {
+                                    if (listener != null) {
+                                        listener.onUsuarioSeleccionado((Usuario) lstListado.getAdapter()
+                                                .getItem(pos));
+                                    }
+                                }
+                            });
                         }
-                    });
-
-                }
-            }
-        });
-
+                    }
+                });
         return view;
-
     }
 
     @Override
     public void onActivityCreated(Bundle state) {
         super.onActivityCreated(state);
-
-
     }
 
     public void setUsuarioListener(UsuarioListener listener) {

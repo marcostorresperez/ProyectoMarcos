@@ -24,6 +24,7 @@ public class UsuarioActivity extends AppCompatActivity implements UsuarioListene
         getSupportFragmentManager().beginTransaction().add(R.id.FrgListado, frgListado).commit();
     }
 
+    //Detectamos
     @Override
     public void onUsuarioSeleccionado(Usuario u) {
         boolean hayDetalle = (getSupportFragmentManager().findFragmentById(R.id.FrgDetalle) != null);
@@ -33,7 +34,10 @@ public class UsuarioActivity extends AppCompatActivity implements UsuarioListene
 
         } else {
             Intent i = new Intent(this, ActivityUsuarioDetalle.class);
-            i.putExtra("UsuarioDetalle", u);
+            i.putExtra("UsuarioNombre", u.getNombre());
+            i.putExtra("UsuarioApellido", u.getApellido());
+            i.putExtra("UsuarioCorreo", u.getCorreo());
+            i.putExtra("UsuarioTelefono", u.getTelefono());
             startActivity(i);
         }
     }

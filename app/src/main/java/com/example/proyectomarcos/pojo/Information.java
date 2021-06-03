@@ -10,11 +10,8 @@ import java.io.Serializable;
 public class Information implements Serializable {
 
     private String temperature;
-
     private String wind;
-
     private String humidity;
-
     private String pressure;
 
     public Information() {}

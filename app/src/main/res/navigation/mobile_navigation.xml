@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/principalActivity">
+
+    <activity
+        android:id="@+id/principalActivity"
+        android:name="com.example.proyectomarcos.principal.PrincipalActivity"
+        android:label="activity_principal"
+        tools:layout="@layout/activity_principal" />
+    <activity
+        android:id="@+id/emergenciasActivity"
+        android:name="com.example.proyectomarcos.principal.EmergenciasActivity"
+        android:label="activity_emergencias"
+        tools:layout="@layout/activity_emergencias" />
+    <activity
+        android:id="@+id/usuarioActivity"
+        android:name="com.example.proyectomarcos.principal.UsuarioActivity"
+        android:label="UsuarioActivity" />
+    <activity
+        android:id="@+id/normativaActivity"
+        android:name="com.example.proyectomarcos.principal.NormativaActivity"
+        android:label="activity_normativa"
+        tools:layout="@layout/activity_normativa" />
+    <activity
+        android:id="@+id/tiempoActivity"
+        android:name="com.example.proyectomarcos.principal.TiempoActivity"
+        android:label="layout_activity_tiempo"
+        tools:layout="@layout/layout_activity_tiempo" />
+</navigation>
