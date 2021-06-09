@@ -3,12 +3,10 @@ package com.example.proyectomarcos.principal
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.proyectomarcos.R
-import com.example.proyectomarcos.pojo.Usuario
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -46,7 +44,7 @@ class RegisterActivity : AppCompatActivity() {
         registerPassword = findViewById(R.id.registerPassword)
         registerNombre = findViewById(R.id.registerNombre)
         registerApellido = findViewById(R.id.registerApellido)
-        registerTelefono = findViewById(R.id.registertelefono)
+        registerTelefono = findViewById(R.id.registerTelefono)
         registerButton = findViewById(R.id.registerButton)
         registerLogin = findViewById(R.id.registerLogin)
 
@@ -82,6 +80,7 @@ class RegisterActivity : AppCompatActivity() {
 //    Función llamada al pulsar el botón registro dónde pasamos el valor de todos los campos
 //    ejecutamos el metodo de Firebase "createUserWithEmailAndPassword" y si todo es correcto
 //    se crea un mapa para añadirlo a la coleccion y guardarlo en la BD
+
     private fun register(email: String, pass: String, nombre: String, apellido: String,
         telefono: String) {
         val db = Firebase.firestore
@@ -90,7 +89,7 @@ class RegisterActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 val user: FirebaseUser? = auth.currentUser
                 val dbUser = hashMapOf(
-                    "uid" to user!!.uid, "correo" to user!!.email.toString(), "nombre" to nombre,
+                    "uid" to user!!.uid, "correo" to email, "nombre" to nombre,
                     "apellido" to apellido, "telefono" to telefono, "esJunta" to false
                 )
 
@@ -106,7 +105,7 @@ class RegisterActivity : AppCompatActivity() {
                         ).show()
                     }
 
-                var intent = Intent(this, PrincipalActivity::class.java)
+                var intent = Intent(this, DrawerActivity::class.java)
                 intent.putExtra("email", email);
                 startActivity(intent)
                 finish()

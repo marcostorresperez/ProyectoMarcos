@@ -16,6 +16,7 @@
         android:background="@drawable/botongcivil"
         android:gravity="center"
         android:textAlignment="center"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintStart_toEndOf="@+id/correoUser" />
 
@@ -35,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.16" />
+        app:layout_constraintGuide_percent="0.2" />
 
     <LinearLayout
         android:id="@+id/linearLayout"

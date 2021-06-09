@@ -24,7 +24,6 @@ public class UsuarioActivity extends AppCompatActivity implements UsuarioListene
         getSupportFragmentManager().beginTransaction().add(R.id.FrgListado, frgListado).commit();
     }
 
-    //Detectamos
     @Override
     public void onUsuarioSeleccionado(Usuario u) {
         boolean hayDetalle = (getSupportFragmentManager().findFragmentById(R.id.FrgDetalle) != null);

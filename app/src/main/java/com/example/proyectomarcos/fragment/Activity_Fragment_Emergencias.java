@@ -26,13 +26,11 @@ public class Activity_Fragment_Emergencias extends Fragment {
     private View view;
 
     public Activity_Fragment_Emergencias() {
-        // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
         this.view = inflater.inflate(R.layout.activity_emergencias, container, false);
 
@@ -76,16 +74,13 @@ public class Activity_Fragment_Emergencias extends Fragment {
             @Override
             public void onClick(View v) {
                 String numero = "062";
-   /*             Intent i = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + numero));
-                *//*i.setData();*//*
-                startActivity(i);*/
                 callPhoneNumber(numero);
             }
         });
-
         return this.view;
     }
 
+    //Si tenemos permisos del sistema hacemos la llamada
     public void callPhoneNumber(String numero) {
         try {
             if (Build.VERSION.SDK_INT > 22) {

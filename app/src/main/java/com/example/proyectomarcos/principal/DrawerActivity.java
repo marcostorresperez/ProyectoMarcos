@@ -30,7 +30,7 @@ import com.example.proyectomarcos.fragment.Activity_Fragment_Tiempo;
 import com.example.proyectomarcos.fragment.Activity_Fragment_Tiempo_Detalle;
 import com.example.proyectomarcos.fragment.Activity_Fragment_Normativa;
 import com.example.proyectomarcos.fragment.PrincipalButtons;
-import com.example.proyectomarcos.fragment.PrincipalFragment;
+import com.example.proyectomarcos.fragment.Activity_Fragment_Principal;
 import com.example.proyectomarcos.fragment.PrincipalListener;
 import com.example.proyectomarcos.fragment.UsuarioListener;
 import com.example.proyectomarcos.pojo.Day;
@@ -46,7 +46,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
 
-public class DrawerActivity extends AppCompatActivity implements PrincipalListener, UsuarioListener, AbrirTiempoListener, NavigationView.OnNavigationItemSelectedListener {
+public class DrawerActivity extends AppCompatActivity implements PrincipalListener, UsuarioListener,
+        AbrirTiempoListener, NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityDrawerBinding binding;
@@ -60,20 +61,15 @@ public class DrawerActivity extends AppCompatActivity implements PrincipalListen
         binding = ActivityDrawerBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_drawer);
 
+        //Creamos el layout y construimos la barra superior para la navegación
         DrawerLayout drawer = binding.drawerLayout;
-
-
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.emergenciasActivity, R.id.normativaActivity, R.id.principalActivity, R.id.usuarioActivity, R.id.tiempoActivity)
-                .setDrawerLayout(drawer)
-                .build();
- /*       NavController navController = Navigation.findNavController(this, R.id.main_frame);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);*/
+                R.id.emergenciasActivity, R.id.normativaActivity, R.id.principalActivity,
+                R.id.usuarioActivity, R.id.tiempoActivity).setDrawerLayout(drawer).build();
 
         main_frame = findViewById(R.id.main_frame);
-        currentFragment = new PrincipalFragment();
-        ((PrincipalFragment) currentFragment).setListener(this::onButtonPressed);
+        currentFragment = new Activity_Fragment_Principal();
+        ((Activity_Fragment_Principal) currentFragment).setListener(this::onButtonPressed);
         getSupportFragmentManager().beginTransaction().add(R.id.main_frame, currentFragment).commit();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -81,17 +77,19 @@ public class DrawerActivity extends AppCompatActivity implements PrincipalListen
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.nav_drawer_open, R.string.nav_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        //Dejamos un listener por si se pulsa cualquiera de las opciones
         navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
 
         View headerView = navigationView.getHeaderView(0);
         TextView headerNombre = headerView.findViewById(R.id.drawerNombre);
         TextView headerCorreo = headerView.findViewById(R.id.drawerCorreo);
 
-
+        //Capturamos el usuario actual para rellenar los datos del menú
         FirebaseUser fbUser = (FirebaseUser) FirebaseAuth.getInstance().getCurrentUser();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -103,8 +101,8 @@ public class DrawerActivity extends AppCompatActivity implements PrincipalListen
                             DocumentSnapshot document = task.getResult();
                             Usuario usuario = document.toObject(Usuario.class);
                             headerNombre.setText(usuario.getNombre() + " " + usuario.getApellido());
-headerCorreo.setText(usuario.getCorreo());
-                            // El botón "btnSocios" solo sera visible si el usuario es de la junta de socios
+                            headerCorreo.setText(usuario.getCorreo());
+
 
                         }
                     }
@@ -113,7 +111,7 @@ headerCorreo.setText(usuario.getCorreo());
 
     @Override
     public void onBackPressed() {
-        if (currentFragment instanceof PrincipalFragment) {
+        if (currentFragment instanceof Activity_Fragment_Principal) {
             SharedPreferences.Editor prefs = getSharedPreferences(getString(R.string.prefs_file),
                     Context.MODE_PRIVATE).edit();
             prefs.clear();
@@ -131,8 +129,8 @@ headerCorreo.setText(usuario.getCorreo());
             ((Activity_Fragment_Tiempo) currentFragment).setAbrirTiempoListener(this::diaSeleccionado);
             getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, currentFragment).commit();
         } else {
-            currentFragment = new PrincipalFragment();
-            ((PrincipalFragment) currentFragment).setListener(this::onButtonPressed);
+            currentFragment = new Activity_Fragment_Principal();
+            ((Activity_Fragment_Principal) currentFragment).setListener(this::onButtonPressed);
             getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, currentFragment).commit();
         }
     }
@@ -151,42 +149,34 @@ headerCorreo.setText(usuario.getCorreo());
                 Intent intent = new Intent(DrawerActivity.this, MapsActivity.class);
                 startActivity(intent);
                 break;
-
             case SALIR:
                 SharedPreferences.Editor prefs = getSharedPreferences(getString(R.string.prefs_file),
                         Context.MODE_PRIVATE).edit();
                 prefs.clear();
                 prefs.apply();
-
                 FirebaseAuth.getInstance().signOut();
-
                 finish();
                 break;
-
             case SOCIOS:
                 currentFragment = new Activity_Fragment_Lista();
                 ((Activity_Fragment_Lista) currentFragment).setUsuarioListener(this::onUsuarioSeleccionado);
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, currentFragment).commit();
                 break;
-
             case TIEMPO:
                 currentFragment = new Activity_Fragment_Tiempo();
                 ((Activity_Fragment_Tiempo) currentFragment).setAbrirTiempoListener(this::diaSeleccionado);
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, currentFragment).commit();
                 break;
-
             case NORMATIVA:
                 currentFragment = new Activity_Fragment_Normativa();
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, currentFragment).commit();
                 break;
-
             case EMERGENCIAS:
                 currentFragment = new Activity_Fragment_Emergencias();
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, currentFragment).commit();
                 break;
         }
     }
-
 
     @Override
     public boolean onNavigationItemSelected(@NonNull @NotNull MenuItem item) {
@@ -197,8 +187,8 @@ headerCorreo.setText(usuario.getCorreo());
             currentFragment = new Activity_Fragment_Normativa();
             getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, currentFragment).commit();
         } else if (item.getItemId() == R.id.principalActivity) {
-            currentFragment = new PrincipalFragment();
-            ((PrincipalFragment) currentFragment).setListener(this::onButtonPressed);
+            currentFragment = new Activity_Fragment_Principal();
+            ((Activity_Fragment_Principal) currentFragment).setListener(this::onButtonPressed);
             getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, currentFragment).commit();
         } else if (item.getItemId() == R.id.usuarioActivity) {
             currentFragment = new Activity_Fragment_Lista();
@@ -214,7 +204,8 @@ headerCorreo.setText(usuario.getCorreo());
 
     @Override
     public void onUsuarioSeleccionado(Usuario u) {
-        currentFragment = Activity_Fragment_Detalle.newInstance(u.getNombre(), u.getCorreo(), u.getApellido(), u.getTelefono());
+        currentFragment = Activity_Fragment_Detalle.newInstance(u.getNombre(), u.getCorreo(),
+                u.getApellido(), u.getTelefono());
         getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, currentFragment).commit();
     }
 

@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectomarcos.R
+import com.example.proyectomarcos.pojo.Usuario
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -22,6 +22,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
@@ -79,6 +80,7 @@ class LoginActivityKT : AppCompatActivity() {
         }
     }
 
+    //Login mediante Google Sign In
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == GOOGLE_SIGN_IN) {
@@ -91,6 +93,9 @@ class LoginActivityKT : AppCompatActivity() {
 
                     FirebaseAuth.getInstance().signInWithCredential(credential)
                         .addOnCompleteListener {
+
+//Si todo es correcto creamos un usuario nuevo en nuestro Firebase, si es la primera vez que
+//conectamos con esta cuenta nos llevará al registro para terminar de completarlos, sino, iniciará sesión directamente
                             if (it.isSuccessful) {
                                 val user: FirebaseUser = it.result!!.user!!
                                 val db: FirebaseFirestore = FirebaseFirestore.getInstance();
@@ -145,7 +150,7 @@ class LoginActivityKT : AppCompatActivity() {
     }
 
     private fun entrar() {
-        val intent: Intent = Intent(this, PrincipalActivity::class.java)
+        val intent: Intent = Intent(this, DrawerActivity::class.java)
         startActivity(intent)
     }
 

@@ -17,16 +17,9 @@ import android.widget.ImageButton;
 import com.example.proyectomarcos.R;
 
 public class EmergenciasActivity extends AppCompatActivity {
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emergencias);
-
-
     }
-
-
 }

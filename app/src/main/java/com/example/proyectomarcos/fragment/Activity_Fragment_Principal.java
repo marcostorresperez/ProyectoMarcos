@@ -24,9 +24,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class PrincipalFragment extends Fragment {
+public class Activity_Fragment_Principal extends Fragment {
 
-    public PrincipalFragment() {
+    public Activity_Fragment_Principal() {
         // Required empty public constructor
     }
 

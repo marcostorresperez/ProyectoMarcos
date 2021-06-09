@@ -47,12 +47,12 @@ class RegisterGoogleActivity : AppCompatActivity() {
         registerPassword.visibility = View.GONE
         registerNombre = findViewById(R.id.registerNombre)
         registerApellido = findViewById(R.id.registerApellido)
-        registerTelefono = findViewById(R.id.registertelefono)
+        registerTelefono = findViewById(R.id.registerTelefono)
         registerButton = findViewById(R.id.registerButton)
         registerLogin = findViewById(R.id.registerLogin)
 
-       registerEmail.setText(fbUser?.email)
-       registerEmail.isEnabled = false
+        registerEmail.setText(fbUser?.email)
+        registerEmail.isEnabled = false
 
         registerButton.setOnClickListener {
             val email = registerEmail.text.toString()
@@ -60,7 +60,7 @@ class RegisterGoogleActivity : AppCompatActivity() {
             val apellido = registerApellido.text.toString()
             val telefono = registerTelefono.text.toString()
 
-                register(email, nombre, apellido, telefono)
+            register(email, nombre, apellido, telefono)
         }
 
         registerLogin.setOnClickListener {
@@ -79,36 +79,35 @@ class RegisterGoogleActivity : AppCompatActivity() {
         val db = Firebase.firestore
 
 
+        val user: FirebaseUser? = auth.currentUser
 
-                    val user: FirebaseUser? = auth.currentUser
+        val dbUser = hashMapOf(
+            "uid" to user!!.uid,
+            "correo" to user!!.email.toString(),
+            "nombre" to nombre,
+            "apellido" to apellido,
+            "telefono" to telefono,
+            "esJunta" to false
+        )
 
-                    val dbUser = hashMapOf(
-                        "uid" to user!!.uid,
-                        "correo" to user!!.email.toString(),
-                        "nombre" to nombre,
-                        "apellido" to apellido,
-                        "telefono" to telefono,
-                        "esJunta" to false
-                    )
+        db.collection("usuarios").document(user.uid)
+            .set(dbUser)
+            .addOnSuccessListener {
+                Toast.makeText(applicationContext, "Usuario creado", Toast.LENGTH_SHORT)
+                    .show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(
+                    applicationContext,
+                    "Register failed",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+            }
 
-                    db.collection("usuarios").document(user.uid)
-                        .set(dbUser)
-                        .addOnSuccessListener {
-                            Toast.makeText(applicationContext, "Usuario creado", Toast.LENGTH_SHORT)
-                                .show()
-                        }
-                        .addOnFailureListener {
-                            Toast.makeText(
-                                applicationContext,
-                                "Register failed",
-                                Toast.LENGTH_SHORT
-                            )
-                                .show()
-                        }
-
-                    var intent = Intent(this, PrincipalActivity::class.java)
-                    startActivity(intent)
-                    finish()
+        var intent = Intent(this, DrawerActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun checkLength(pass: String): Boolean {

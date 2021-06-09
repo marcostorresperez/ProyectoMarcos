@@ -62,18 +62,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         db.collection("usuarios").document(fbUser.getUid()).get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    usuario = document.toObject(Usuario.class);
-                    MarkerOptions mo = new MarkerOptions();
-                    mo.position(new LatLng(usuario.getPuntos().get(0).getLatitude(),
-                            usuario.getPuntos().get(0).getLongitude()));
-                    mMap.addMarker(mo.icon(BitmapDescriptorFactory.fromResource(R.drawable.car)));
-                }
-            }
-        });
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            usuario = document.toObject(Usuario.class);
+                            MarkerOptions mo = new MarkerOptions();
+                            mo.position(new LatLng(usuario.getPuntos().get(0).getLatitude(),
+                                    usuario.getPuntos().get(0).getLongitude()));
+                            mMap.addMarker(mo.icon(BitmapDescriptorFactory.fromResource(R.drawable.car)));
+                        }
+                    }
+                });
     }
 
     //Al cargarse la pantalla, mostramos nuestra ubicacion actual
@@ -96,7 +96,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setMyLocationEnabled(true);
     }
 
-//    Al pulsar el botón cogemos las coordenadas actuales i las guardamos al usuario de la BD como
+    //    Al pulsar el botón cogemos las coordenadas actuales i las guardamos al usuario de la BD como
 //    un Array de GeoPoint y añadimos el marcador a nuestro mapa
     public void sePulsa(View v) {
         if (ActivityCompat.checkSelfPermission(this,
@@ -124,7 +124,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         if (usuario.getPuntos() != null) {
             usuario.getPuntos().set(0, new GeoPoint(lat, longt));
-            final androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(this);
+            final androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app
+                    .AlertDialog.Builder(this);
             builder.setTitle("Confirmar cambios");
             builder.setMessage("¿Está seguro de querer cambiar su ubicación marcada?");
             builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
@@ -135,7 +136,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     MarkerOptions mo = new MarkerOptions();
                     mo.position(posActual);
                     mo.title("Inicio del día");
-                    mMap.addMarker(mo.icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher_map_foreground)));
+                    mMap.addMarker(mo.icon(BitmapDescriptorFactory
+                            .fromResource(R.mipmap.ic_launcher_map_foreground)));
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(posActual));
                 }
             });

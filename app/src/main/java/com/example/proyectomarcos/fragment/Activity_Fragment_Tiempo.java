@@ -76,7 +76,7 @@ public class Activity_Fragment_Tiempo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.layout_fragment_tiempo, container, false);
 
-//Con el cliente HTTP Retrpofit nos conectamos a la API del tiempo y hacemos una petición que nos
+//Con el cliente HTTP Retrofit nos conectamos a la API del tiempo y hacemos una petición que nos
 //devuelve un XML que mediante DOM lo transformamos en un objeto "Day" para si poder mostrarlo
         Retrofit retrofit = new Retrofit.Builder().baseUrl("https://api.tutiempo.net/")
                 .addConverterFactory(ScalarsConverterFactory.create()).build();
